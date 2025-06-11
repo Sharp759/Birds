@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Birds Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="sidebar-title">
+                <img src="Title.svg" alt="Italian Birds Dashboard" class="title-svg">
+            </div>
+            
+            <div class="control-group">
+                <h3>BASE MAP</h3>
+                <div class="map-toggle-container">
+                    <label class="map-toggle">
+                        <input type="radio" name="basemap" value="dark" checked>
+                        <span class="map-toggle-track">
+                            <span class="map-toggle-thumb"></span>
+                            <span class="map-toggle-label">Dark</span>
+                        </span>
+                    </label>
+                    <label class="map-toggle">
+                        <input type="radio" name="basemap" value="satellite">
+                        <span class="map-toggle-track">
+                            <span class="map-toggle-thumb"></span>
+                            <span class="map-toggle-label">Satellite</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Birds Species</h3>
+                <select id="birdSpecies" class="dropdown">
+                    <option value="Pigeons">Pigeons</option>
+                    <option value="Sparrows">Sparrows</option>
+                    <option value="Seagulls">Seagulls</option>
+                    <option value="Blackbirds">Blackbirds</option>
+                    <option value="Robins">Robins</option>
+                    <option value="Magpies">Magpies</option>
+                    <option value="Mockingbird">Mockingbird</option>
+                    <option value="Kingfisher">Kingfisher</option>
+                    <option value="Cardinal">Cardinal</option>
+                    <option value="Total">Total</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <h3>HEAT MAP</h3>
+                <label class="heatmap-toggle">
+                    <input type="checkbox" id="heatmapToggle">
+                    <span class="toggle-track">
+                        <span class="toggle-thumb"></span>
+                        <span class="toggle-on">ON</span>
+                        <span class="toggle-off">OFF</span>
+                    </span>
+                </label>
+            </div>
+
+            <!-- Logo at the bottom -->
+            <div class="sidebar-logo">
+                <img src="BirdGiff.gif" alt="Application Logo">
+            </div>
+        </div>
+        
+        <!-- Main Map Section -->
+        <div class="map-container" id="map"></div>
+        
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="chart-container">
+                <h3>Bar Chart</h3>
+                <div class="chart-wrapper">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Line Chart</h3>
+                <div class="chart-wrapper">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Pie Chart</h3>
+                <div class="chart-wrapper">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom KPIs -->
+        <div class="kpi-container">
+            <div class="kpi">
+                <h3>Total <span id="kpiBirdName1">Birds</span></h3>
+                <p id="totalBirds">0</p>
+            </div>
+            <div class="kpi">
+                <h3>Maximum <span id="kpiBirdName2">Birds</span></h3>
+                <p id="maxBirds">0</p>
+                <p id="maxCity" class="city-name"></p>
+            </div>
+            <div class="kpi">
+                <h3>Minimum <span id="kpiBirdName3">Birds</span></h3>
+                <p id="minBirds">0</p>
+                <p id="minCity" class="city-name"></p>
+            </div>
+            <div class="kpi">
+                <h3>Average <span id="kpiBirdName4">Birds</span></h3>
+                <p id="avgBirds">0</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="csvData.js"></script>
+    <script src="jsonData.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
